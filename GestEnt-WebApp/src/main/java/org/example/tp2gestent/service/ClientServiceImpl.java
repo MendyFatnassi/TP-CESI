@@ -17,9 +17,16 @@ public class ClientServiceImpl {
         return clientRepository.findAll();
     }
 
-    public Optional<Client> getCientById(Integer id){
+    public Optional<Client> getClientById(Integer id){
         return clientRepository.findById(id);
     }
 
+    public void deleteClient(Integer id){
+        clientRepository.deleteById(id);
+    }
+
+    public Client save(Client client){
+        return clientRepository.save(client);
+    }
 
 }

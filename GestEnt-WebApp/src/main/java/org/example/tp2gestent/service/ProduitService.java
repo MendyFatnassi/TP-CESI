@@ -1,7 +1,9 @@
 package org.example.tp2gestent.service;
 
+import org.example.tp2gestent.model.Achat;
 import org.example.tp2gestent.model.Client;
 import org.example.tp2gestent.model.Produit;
+import org.example.tp2gestent.repository.AchatRepository;
 import org.example.tp2gestent.repository.ClientRepository;
 import org.example.tp2gestent.repository.ProduitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,5 +25,13 @@ public class ProduitService {
         return produitRepository.findById(id);
     }
 
+
+    public void deleteProduit(Integer id){
+        produitRepository.deleteById(id);
+    }
+
+    public Produit save (Produit produit){
+        return produitRepository.save(produit);
+    }
 
 }

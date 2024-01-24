@@ -21,4 +21,7 @@ public class EntrepriseServiceImpl {
         return entrepriseRepository.findById(id);
     }
 
+    public void deleteEntreprise (Integer id){
+        entrepriseRepository.deleteById(id);
+    }
 }

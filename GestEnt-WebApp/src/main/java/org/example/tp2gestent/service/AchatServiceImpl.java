@@ -26,16 +26,16 @@ public class AchatServiceImpl {
     }
 
     public Achat saveAchat(Achat achat) {
-        Achat savedProduit;
+        Achat savedAchat;
 
         if(achat.getAchatId() == null) {
             // Si l'id est nul, alors c'est un nouvel employé.
-            savedProduit = achatProxy.createAchat(achat);
+            savedAchat = achatProxy.createAchat(achat);
         } else {
-            savedProduit = achatProxy.updateAchat(achat);
+            savedAchat = achatProxy.updateAchat(achat);
         }
 
-        return savedProduit;
+        return savedAchat;
     }
 
 }

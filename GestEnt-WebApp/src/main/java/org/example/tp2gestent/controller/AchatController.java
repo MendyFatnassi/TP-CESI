@@ -21,7 +21,7 @@ public class AchatController {
     public String home(Model model) {
         Iterable<Achat> listAchat = achatService.getAchats();
         model.addAttribute("achats", listAchat);
-        return "home";
+        return "homeAchat";
     }
 
     @GetMapping("/createAchat")
@@ -44,7 +44,7 @@ public class AchatController {
         return new ModelAndView("redirect:/");
     }
 
-    @PostMapping("/saveAchat")
+    @PostMapping("/achat")
     public ModelAndView saveAchat(@ModelAttribute Achat achat) {
         if(achat.getAchatId() != null) {
             // Achat from update form has the password field not filled,

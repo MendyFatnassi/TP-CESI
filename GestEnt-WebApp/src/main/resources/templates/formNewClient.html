@@ -41,31 +41,26 @@
 
 <div class="container special">
 
-    <h2 class="h2">Modification d'un employée</h2>
+    <h2 class="h2">Ajout d'un nouveaux client</h2>
     <div>
         <form method="post"
-              th:action="@{/saveAchat}" th:object="${achat}">
+              th:action="@{/saveClient}" th:object="${client}">
             <div class="form-group">
+                <label for="numeroClientInput">numerosAchat</label>
                 <input
-                        type="hidden" th:field="*{id}" class="form-control">
+                        type="text" th:field="*{numeroClient}" class="form-control" id="numeroClientInput"
+                        aria-describedby="numeroClientHelp" placeholder="Saisir le numero client"> <small
+                    id="firstNameHelp" class="form-text text-muted">Merci d'écrire le numero client.</small>
             </div>
             <div class="form-group">
-                <label for="numeroAchatInput">Numeros Achat</label>
+                <label for="historiqueachatInput">historiqueAchat</label>
                 <input
-                        type="text" th:field="*{numeroAchat}" class="form-control" id="numeroAchatInput"
-                        aria-describedby="numeroAchatHelp" placeholder="Saisir le numero d'achat"> <small
-                    id="numeroAchatHelp" class="form-text text-muted">Merci d'écrire le numero d'achat.</small>
-            </div>
-
-            <div class="form-group">
-                <label for="dateAchatInput">Email</label>
-                <input
-                        type="text" th:field="*{dateAchat}" class="form-control" id="dateAchatInput"
-                        aria-describedby="mailHelp" placeholder="Saisir l'adresse email"> <small
-                    id="mailHelp" class="form-text text-muted">Merci d'écrire l'adresse email de l'employée.</small>
+                        type="text" th:field="*{historiqueAchat}" class="form-control" id="historiqueachatInput"
+                        aria-describedby="historiqueAchatHelp" placeholder="Saisir l'historique d'achat"> <small
+                    id="historiqueAchatHelp" class="form-text text-muted">Merci d'écrire la date d'achat.</small>
             </div>
 
-            <button type="submit" class="btn btn-primary">Modifier</button>
+            <button type="submit" class="btn btn-primary">Créer</button>
         </form>
     </div>
 

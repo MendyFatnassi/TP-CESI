@@ -1,18 +1,15 @@
-package org.example.tp2gestent.service;
+package org.example.gesentapi.service;
 
-import org.example.tp2gestent.model.Achat;
-import org.example.tp2gestent.model.Client;
-import org.example.tp2gestent.model.Produit;
-import org.example.tp2gestent.repository.AchatRepository;
-import org.example.tp2gestent.repository.ClientRepository;
-import org.example.tp2gestent.repository.ProduitRepository;
+
+import org.example.gesentapi.model.Produit;
+import org.example.gesentapi.repository.ProduitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
-public class ProduitService {
+public class ProduitServiceImpl {
 
     @Autowired
     private ProduitRepository produitRepository;

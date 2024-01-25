@@ -1,6 +1,6 @@
-package org.example.tp2gestent.repository;
+package org.example.gesentapi.repository;
 
-import org.example.tp2gestent.model.Achat;
+import org.example.gesentapi.model.Achat;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

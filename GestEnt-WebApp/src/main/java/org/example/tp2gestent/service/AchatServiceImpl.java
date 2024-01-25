@@ -1,7 +1,7 @@
 package org.example.tp2gestent.service;
 
 import org.example.tp2gestent.model.Achat;
-import org.example.tp2gestent.repository.AchatRepository;
+import org.example.tp2gestent.repository.AchatProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,22 +11,31 @@ import java.util.Optional;
 public class AchatServiceImpl {
 
     @Autowired
-    private AchatRepository achatRepository;
+    private AchatProxy achatProxy;
 
     public Iterable<Achat> getAchats(){
-        return achatRepository.findAll();
+        return achatProxy.getAchats();
     }
 
-    public Optional<Achat> getAchatById(Integer id){
-        return achatRepository.findById(id);
-    }d
+    public Achat getAchatById(Integer id){
+        return achatProxy.getAchat(id);
+    }
 
     public void deleteAchat(Integer id){
-        achatRepository.deleteById(id);
+        achatProxy.deleteAchat(id);
     }
 
-    public Achat save (Achat achat){
-        return achatRepository.save(achat);
+    public Achat saveAchat(Achat achat) {
+        Achat savedProduit;
+
+        if(achat.getAchatId() == null) {
+            // Si l'id est nul, alors c'est un nouvel employé.
+            savedProduit = achatProxy.createAchat(achat);
+        } else {
+            savedProduit = achatProxy.updateAchat(achat);
+        }
+
+        return savedProduit;
     }
 
 }

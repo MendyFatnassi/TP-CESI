@@ -1,4 +1,4 @@
-package org.example.tp2gestent.model;
+package org.example.gesentapi.model;
 
 import lombok.Builder;
 import lombok.Data;
@@ -19,4 +19,7 @@ public class Personne {
         this.adresse=adresse;
     }
 
+    public Personne() {
+
+    }
 }

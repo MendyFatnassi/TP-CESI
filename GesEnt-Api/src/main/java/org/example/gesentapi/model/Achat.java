@@ -22,25 +22,10 @@ public class Achat {
     private Integer numeroAchat;
 
     @Column(name="liste_produit")
-    @OneToMany(cascade = CascadeType.ALL,
-    orphanRemoval = true,
-    fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_produit")
-    private List<Produit> produitList;
+    private Integer produitList;
 
-    @ManyToMany(
-            fetch = FetchType.LAZY,
-            cascade = {
-                    CascadeType.PERSIST,
-                    CascadeType.MERGE
-            }
-    )
-    @JoinTable(
-            name = "liste_client",
-            joinColumns = @JoinColumn(name = "achat_id"),
-            inverseJoinColumns = @JoinColumn(name = "client_id")
-    )
-    private List<Client> clientList;
+    @Column(name="liste_client")
+    private Integer clientList;
 
     @Column(name="date_achat")
     private String dateAchat ;

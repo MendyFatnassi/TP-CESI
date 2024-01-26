@@ -15,7 +15,6 @@ public class Achatcontroller {
     @Autowired
     AchatServiceImpl achatService;
 
-
     @GetMapping("/achats")
     public Iterable<Achat> getAchats(){
         return achatService.getAchats();
@@ -23,7 +22,7 @@ public class Achatcontroller {
 
     @GetMapping("/achat/{id}")
     public Achat getAchat(@PathVariable ("id") Integer id){
-        Optional<Achat> achat = achatService.getAchatById(id);
+        Optional<Achat> achat = achatService.getAchat(id);
         if(achat.isPresent()){
             return achat.get();
         }
@@ -34,7 +33,7 @@ public class Achatcontroller {
 
     @PostMapping("/achat")
     public Achat createAchat(@RequestBody Achat achat){
-        return achatService.save(achat);
+        return achatService.saveAchat(achat);
     }
 
     @DeleteMapping("/achat/{id}")
@@ -44,7 +43,7 @@ public class Achatcontroller {
 
     @PutMapping("/achat/{id}")
     public Achat updateAchat(@PathVariable("id") final Integer id, @RequestBody Achat achat) {
-        Optional<Achat> achatTemp = achatService.getAchatById(id);
+        Optional<Achat> achatTemp = achatService.getAchat(id);
         if(achatTemp.isPresent()) {
             Achat currentAchat = achatTemp.get();
 
@@ -58,9 +57,14 @@ public class Achatcontroller {
                 currentAchat.setNumeroAchat(numAchat);
             }
 
-            List<Produit> produitList = achat.getProduitList();
+            Integer produitList = achat.getProduitList();
             if(produitList != null){
                 currentAchat.setProduitList(produitList);
+            }
+
+            Integer clientList = achat.getClientList();
+            if(clientList!= null){
+                currentAchat.setClientList(clientList);
             }
 
             String date = achat.getDateAchat();
@@ -68,7 +72,7 @@ public class Achatcontroller {
                 currentAchat.setDateAchat(date);
             }
 
-            achatService.save(currentAchat);
+            achatService.saveAchat(currentAchat);
             return currentAchat;
         } else {
             return null;

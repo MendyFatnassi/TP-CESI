@@ -42,20 +42,20 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:if="${achats.empty}">
-                <td colspan="3">Aucun achats en base de données</td>
-            </tr>
-            <tr th:each="achat: ${achats}">
-                <td><span th:text="${achat.achatId}"> achatId </span></td>
-                <td><span th:text="${achat.numerosAchat}"> numerosAchat </span></td>
-                <td><span th:text="${achat.produitListe}"> produitListe </span></td>
-                <td><span th:text="${achat.clientListe}"> clientListe </span></td>
-                <td><span th:text="${achat.dateAchat}"> date </span></td>
-                <td>
-                    <a th:href="@{/updateAchat/{id}(id=${achat.id})}"><button class="btn btn-info">Modifier</button></a>
-                    <a th:href="@{/deleteAchat/{id}(id=${achat.id})}"><button class="btn btn-danger">Supprimer</button></a>
-                </td>
-            </tr>
+                <tr th:if="${achats.empty}">
+                    <td colspan="3">Aucun achats en base de données</td>
+                </tr>
+                <tr th:each="achat: ${achats}">
+                    <td><span th:text="${achat.achatId}"> achatId </span></td>
+                    <td><span th:text="${achat.numeroAchat}"> numerosAchat </span></td>
+                    <td><span th:text="${achat.produitList}"> produitListe </span></td>
+                    <td><span th:text="${achat.clientList}"> clientListe </span></td>
+                    <td><span th:text="${achat.dateAchat}"> date </span></td>
+                    <td>
+                        <a th:href="@{/updateAchat/{id}(id=${achat.id})}"><button class="btn btn-info">Modifier</button></a>
+                        <a th:href="@{/deleteAchat/{id}(id=${achat.id})}"><button class="btn btn-danger">Supprimer</button></a>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>

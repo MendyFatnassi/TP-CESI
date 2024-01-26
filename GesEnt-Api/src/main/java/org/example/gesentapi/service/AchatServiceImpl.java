@@ -17,7 +17,7 @@ public class AchatServiceImpl {
         return achatRepository.findAll();
     }
 
-    public Optional<Achat> getAchatById(Integer id){
+    public Optional<Achat> getAchat(Integer id){
         return achatRepository.findById(id);
     }
 
@@ -25,8 +25,9 @@ public class AchatServiceImpl {
         achatRepository.deleteById(id);
     }
 
-    public Achat save (Achat achat){
-        return achatRepository.save(achat);
+    public Achat saveAchat (Achat achat){
+        Achat savedAchat = achatRepository.save(achat);
+        return savedAchat;
     }
 
 }

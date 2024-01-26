@@ -1,11 +1,14 @@
 DROP TABLE IF EXISTS achat;
 CREATE TABLE achat(
-    id_achat INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY ,
-    numero_achat INTEGER,
-    date_achat DATETIME,
-    liste_produit INTEGER,
-    liste_client INTEGER
+    id INT AUTO_INCREMENT PRIMARY KEY ,
+    numero_achat INT NOT NULL,
+    date_achat VARCHAR(255) NOT NULL ,
+    liste_produit INT NOT NULL,
+    liste_client INT NOT NULL
 );
+
+INSERT INTO achat (numero_achat,date_achat,liste_produit,liste_client) VALUES (1,'26/01/2024',5,12);
+
 
 DROP TABLE IF EXISTS client;
 CREATE TABLE client(
@@ -51,7 +54,9 @@ CREATE TABLE salarie(
     salaire DOUBLE
 );
 
-ALTER TABLE achat ADD FOREIGN KEY (liste_produit) REFERENCES produit(id_produit);
+
+
+/*ALTER TABLE achat ADD FOREIGN KEY (liste_produit) REFERENCES produit(id_produit);
 ALTER TABLE achat ADD FOREIGN KEY (liste_client) REFERENCES client(id_client);
 
 ALTER TABLE client ADD FOREIGN KEY (historique_achat) REFERENCES achat(id_achat);
@@ -62,5 +67,5 @@ ALTER TABLE entreprise ADD FOREIGN KEY (liste_achat) REFERENCES achat(id_achat);
 
 ALTER TABLE fournisseur ADD FOREIGN KEY (produit_fournie) REFERENCES produit(id_produit);
 
-ALTER TABLE produit ADD FOREIGN KEY (liste_fournisseur) REFERENCES fournisseur(id_fournisseur);
+ALTER TABLE produit ADD FOREIGN KEY (liste_fournisseur) REFERENCES fournisseur(id_fournisseur);*/
 

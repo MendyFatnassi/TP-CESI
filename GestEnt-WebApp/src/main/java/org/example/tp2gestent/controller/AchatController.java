@@ -21,7 +21,7 @@ public class AchatController {
     public String home(Model model) {
         Iterable<Achat> listAchat = achatService.getAchats();
         model.addAttribute("achats", listAchat);
-        return "homeAchat";
+        return "home";
     }
 
     @GetMapping("/createAchat")
